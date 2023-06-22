@@ -43,3 +43,19 @@ merging them into one sorted list:
 	<li><code>lists[i]</code> is sorted in <strong>ascending order</strong>.</li>
 	<li>The sum of <code>lists[i].length</code> will not exceed <code>10<sup>4</sup></code>.</li>
 </ul>
+
+
+Cách giải bài toán
+Đầu tiên, ta tạo một min-heap rỗng. Min-heap được sử dụng để lưu trữ các nút từ các danh sách liên kết theo thứ tự tăng dần.
+
+Tiếp theo, ta thêm nút đầu tiên từ mỗi danh sách liên kết vào min-heap. Ta sử dụng giá trị của nút làm tiêu chí để so sánh và sắp xếp trong min-heap.
+
+Sau đó, ta tạo một nút giả (dummy node) và đặt nó làm nút hiện tại. Nút giả này sẽ được sử dụng để xây dựng danh sách liên kết kết quả.
+
+Tiến hành lặp cho đến khi min-heap trống. Trong mỗi vòng lặp, ta thực hiện các bước sau:
+
+Loại bỏ nút có giá trị nhỏ nhất từ min-heap (là nút nhỏ nhất trong tất cả các danh sách liên kết).
+Gắn nút đã loại bỏ vào con trỏ next của nút hiện tại.
+Di chuyển nút hiện tại đến nút vừa gắn.
+Nếu nút đã loại bỏ có một nút tiếp theo, ta thêm nút đó vào min-heap.
+Khi min-heap trống, ta đã hoàn thành việc hợp nhất tất cả các danh sách liên kết thành một danh sách liên kết duy nhất đã được sắp xếp. Ta trả về nút giả (dummy node) làm đầu của danh sách liên kết kết quả
